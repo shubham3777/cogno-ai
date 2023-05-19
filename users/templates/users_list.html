@@ -1,0 +1,28 @@
+{% extends 'home.html' %}
+
+
+{% block message %}
+<h3 class="text-center my-3">USERS</h3>
+<table class="table table-striped my-3">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">username</th>
+        <th scope="col">email</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{user.username}}</td>
+        <td>{{user.email}}</td>
+        <td>
+            <a href="/users/delete/{{user.id}}/" class="btn btn-danger md-sm">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
